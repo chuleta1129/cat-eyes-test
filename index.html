@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>little things ♡</title>
+    <style>
+      :root {
+        --paper: #f5eee6;
+        --ink: #55464b;
+        --muted: #9a8588;
+        --rose: #d7b7bb;
+        --lav: #c9bfd8;
+        --line: #e6d8ce;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        min-height: 100vh;
+      }
+      body:before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.22;
+        background-image: radial-gradient(#b5a29b 0.6px, transparent 0.6px);
+        background-size: 11px 11px;
+      }
+      .page {
+        min-height: 100vh;
+        max-width: 1440px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        padding: 25px 5vw 30px;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(350px, 0.92fr) 1.08fr;
+        gap: 3vw;
+        align-items: center;
+        min-height: calc(100vh - 105px);
+        padding-top: 12px;
+      }
+      .cat-side {
+        height: min(76vh, 690px);
+        min-height: 480px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        isolation: isolate;
+      }
+      .cat-photo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: left bottom;
+        mix-blend-mode: multiply;
+        z-index: 0;
+      }
+      .cat-photo2 {
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: left bottom;
+        mix-blend-mode: multiply;
+        z-index: 0;
+      }
+      .cat-eyes {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .eye {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(
+          ellipse at 40% 35%,
+          #e3d5a8 0%,
+          #b4b18a 50%,
+          #817a60 100%
+        );
+        box-shadow:
+          0 0 0 2px #493d3d,
+          inset 0 0 0 1px #22180d;
+        overflow: hidden;
+      }
+      .eye .pupil {
+        position: absolute;
+        width: 38%;
+        height: 68%;
+        left: 31%;
+        top: 16%;
+        background: #17151a;
+        border-radius: 50%;
+        transition: transform 0.06s linear;
+      }
+      .eye.two .pupil {
+        width: 60%;
+        height: 70%;
+        left: 10%;
+      }
+      .eye.one .pupil {
+        width: 55%;
+        height: 80%;
+        top: 10%;
+        rotate: -15deg;
+      }
+      .eye .glint {
+        position: absolute;
+        width: 17%;
+        height: 17%;
+        left: 25%;
+        top: 17%;
+        background: #fff9ec;
+        border-radius: 50%;
+        z-index: 2;
+      }
+      .eye.one .glint {
+        position: absolute;
+        width: 17%;
+        height: 17%;
+        left: 60%;
+        top: 25%;
+        background: #fff9ec;
+        border-radius: 50%;
+        z-index: 2;
+      }
+      .eye.two .glint {
+        position: absolute;
+        width: 20%;
+        height: 17%;
+        left: 40%;
+        top: 30%;
+        background: #fff9ec;
+        border-radius: 50%;
+        z-index: 2;
+      }
+      .eye.two .glint.two {
+        position: absolute;
+        width: 5%;
+        height: 5%;
+        left: 50%;
+        top: 50%;
+        background: #fff9ec;
+        border-radius: 50%;
+        z-index: 2;
+      }
+      /* eye positions follow the real cat photograph */
+      .eye.one {
+        left: 41.4%;
+        top: 41.8%;
+        width: 10.9%;
+        height: 7.5%;
+        rotate: -15deg;
+      }
+      .eye.two {
+        left: 61.6%;
+        top: 31.2%;
+        width: 7.7%;
+        height: 7.5%;
+        rotate: -30deg;
+      }
+      @media (max-width: 760px) {
+        .cat-side {
+          height: 430px;
+          min-height: 0;
+          order: 0;
+          width: min(100%, 440px);
+          margin: 0 auto;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *:before,
+        *:after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <main class="layout" id="home">
+        <section
+          class="cat-side"
+          id="catSide"
+        >
+          <img
+            class="cat-photo"
+            src="cat.png"
+          />
+          <img
+            class="cat-photo2"
+            src="cat.png"
+          />
+          <div class="cat-eyes" aria-hidden="true">
+            <div class="eye one">
+              <span class="pupil"></span><span class="glint"></span>
+            </div>
+            <div class="eye two">
+              <span class="pupil"></span><span class="glint"></span>
+              <span class="pupil"></span><span class="glint two"></span>
+            </div>
+          </div>
+          <span class="spark s1">✧</span><span class="spark s2">♡</span
+          ><span class="spark s3">✦</span>
+        </section>
+      </main>
+    </div>
+    <script>
+      const cat = document.getElementById("catSide");
+      const pupils = document.querySelectorAll(".eye .pupil");
+
+      document.addEventListener("pointermove", (event) => {
+        const box = cat.getBoundingClientRect();
+        const x = ((event.clientX - box.left - box.width / 2) / box.width) * 15;
+        const y = ((event.clientY - box.top - box.height * 0.43) / box.height) * 12;
+        const moveX = Math.max(-5, Math.min(5, x));
+        const moveY = Math.max(-3, Math.min(3, y));
+
+        pupils.forEach((pupil) => {
+          pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+      });
+
+      document.addEventListener("pointerleave", () => {
+        pupils.forEach((pupil) => {
+          pupil.style.transform = "translate(0, 0)";
+        });
+      });
+    </script>
+  </body>
+</html>
